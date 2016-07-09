@@ -1,0 +1,9 @@
+#!/bin/bash
+
+CMD_CURATOR="<%= node['curator']['cmd_path'] %>"
+
+${CMD_CURATOR} --host <%= node['curator']['es']['host'] %> --prefix <%= node['curator']['es']['index'] %> -b 2 -c <%= node['curator']['days']['close'] %> -d <%= node['curator']['days']['delete'] %>
+ret=$?
+
+exit ${ret}
+
